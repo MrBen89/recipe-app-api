@@ -1,7 +1,7 @@
 """
 Tests for the tags API.
 """
-from django.contrib.auth import get_user
+from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.test import TestCase
 
@@ -62,7 +62,7 @@ class PrivateTagsApiTests(TestCase):
 
         res = self.client.get(TAGS_URL)
 
-        self.assertEqual(res.status_code, status.HTTP_20_OK)
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(len(res.data), 1)
         self.assertEqual(res.data[0]['name'], tag.name)
-        self.assertEqual(res.data[0]['id', tag.id])
+        self.assertEqual(res.data[0]['id'], tag.id)
