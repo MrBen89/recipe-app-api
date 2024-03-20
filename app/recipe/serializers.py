@@ -32,11 +32,10 @@ class RecipeSerializer(serializers.ModelSerializer):
         auth_user = self.context['request'].user
         for tag in tags:
             tag_obj, created = Tag.objects.get_or_create(
-            user=auth_user,
-            **tag,
+                user=auth_user,
+                **tag,
             )
             recipe.tags.add(tag_obj)
-
 
     def create(self, validated_data):
         """Create a recipe"""
