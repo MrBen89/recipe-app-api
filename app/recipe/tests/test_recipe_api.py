@@ -336,7 +336,7 @@ class PrivateRecipeAPITests(TestCase):
         """Test creating an ingredient when updating a recipe"""
         recipe = create_recipe(user=self.user)
 
-        payload= {'ingredients': [{'name': 'Limes'}]}
+        payload = {'ingredients': [{'name': 'Limes'}]}
         url = detail_url(recipe.id)
         res = self.client.patch(url, payload, format='json')
 
