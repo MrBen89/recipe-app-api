@@ -23,7 +23,6 @@ from core.models import (
     Ingredient,
 )
 from recipe import serializers
-from symbol import parameters
 
 
 @extend_schema_view(
@@ -100,8 +99,8 @@ class RecipeViewSet(viewsets.ModelViewSet):
         parameters=[
             OpenApiParameter(
                 'assigned_only',
-                OpenApiTypes.INT, enum=[0,1],
-                description ='Filter by items assigned to recipes.'
+                OpenApiTypes.INT, enum=[0, 1],
+                description = 'Filter by items assigned to recipes.'
             )
         ]
     )
